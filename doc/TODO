@@ -1,0 +1,22 @@
+* issue: set cursor after add/edit/del
+* issue: action triggers: enable/disable add/edit/del triggers on current model
+* bug: import: check column counts
+* bug: import: NULLs
+* bug: Dialog*: check data befor submition
+* issue: modelC: tooltip from comments
+* issue: Dialog*: OK and Cancel hotkeys
+* issue: Dialog*: tooltips
+* issue: qrdc.spec
+* issue: qrdc.nsis?
+* issue: help
+* issue: single application mode
+* issue: Connections: group by proto/host/connection or host/proto/connection (or filters)
+====
+Triggers:
+	* on not_connection - disable Open
+	* on empty list - disable del, edit
+Set cursor (after):
+	* on begin - 1st
+	* after edit - same
+	* after add - new
+	* after del - next>prev

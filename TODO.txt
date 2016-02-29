@@ -1,0 +1,27 @@
+0.0.2:
+* FDO icons
+* l10n=>_datadir
+* l10n depends on of debug/release path
+
+qrdc.png
+connect.gif
+backup.png	actions/document-save
+restore.png	actions/document-revert
+add.gif
+cancel.gif
+config.gif
+copy.gif
+del.gif
+edit.gif
+minus.gif	actions/edit-delete
+ok.gif	QStyle::SP_DialogOkButton
+plus.gif
+poweroff.gif	action/application-exit
+qt.gif
+qt4.gif
+save.gif
+stop.gif
+windows.gif
+logo_vnc.gif
+logo_realvnc.gif
+logo_xp.gif

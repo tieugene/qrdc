@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DialogProtocol</class>
+ <widget class="QDialog" name="DialogProtocol">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>281</width>
+    <height>222</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Protocol</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <widget class="QLabel" name="lName">
+     <property name="text">
+      <string>&amp;Name</string>
+     </property>
+     <property name="buddy">
+      <cstring>leName</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="leName"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="lPort">
+     <property name="text">
+      <string>&amp;Port</string>
+     </property>
+     <property name="buddy">
+      <cstring>sbPort</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QSpinBox" name="sbPort">
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>65535</number>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="lTerm">
+     <property name="text">
+      <string>&amp;Console</string>
+     </property>
+     <property name="buddy">
+      <cstring>cbTerm</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QCheckBox" name="cbTerm">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="lCmdLine">
+     <property name="text">
+      <string>&amp;Commandline</string>
+     </property>
+     <property name="buddy">
+      <cstring>leCmdLine</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QLineEdit" name="leCmdLine"/>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="lLogo">
+     <property name="text">
+      <string>&amp;Picture</string>
+     </property>
+     <property name="buddy">
+      <cstring>tbLogo</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
+    <widget class="QToolButton" name="tbLogo">
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="leExec"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="lExec">
+     <property name="text">
+      <string>E&amp;xecutable</string>
+     </property>
+     <property name="buddy">
+      <cstring>leExec</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QToolButton" name="tbExec">
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>leName</tabstop>
+  <tabstop>leExec</tabstop>
+  <tabstop>tbExec</tabstop>
+  <tabstop>sbPort</tabstop>
+  <tabstop>cbTerm</tabstop>
+  <tabstop>leCmdLine</tabstop>
+  <tabstop>tbLogo</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>DialogProtocol</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>123</x>
+     <y>197</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>140</x>
+     <y>110</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>DialogProtocol</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>123</x>
+     <y>197</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>140</x>
+     <y>110</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

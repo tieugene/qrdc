@@ -1,0 +1,22 @@
+[Desktop Entry]
+Name=QRDC
+Name[sr]=КјуРДЦ
+Name[sr@ijekavian]=КјуРДЦ
+Name[sr@latin]=QRDC
+Name[sr@ijekavianlatin]=QRDC
+GenericName=Qt Remote Desktop Connection
+GenericName[sr]=Кјут удаљена површ
+GenericName[sr@ijekavian]=Кјут удаљена површ
+GenericName[sr@latin]=Qt udaljena površ
+GenericName[sr@ijekavianlatin]=Qt udaljena površ
+Type=Application
+Comment=Qt Remote Desktop Connection
+Comment[sr]=Кјут клијент удаљене површи
+Comment[sr@ijekavian]=Кјут клијент удаљене површи
+Comment[sr@latin]=Qt klijent udaljene površi
+Comment[sr@ijekavianlatin]=Qt klijent udaljene površi
+Exec=qrdc
+TryExec=qrdc
+Icon=qrdc
+Terminal=false
+Categories=Qt;Network;RemoteAccess;

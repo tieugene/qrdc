@@ -1,0 +1,11 @@
+Source: qrdc
+Section: network
+Priority: optional
+Maintainer: TI_Eugene <ti.eugene@gmail.com>
+Standards-Version: 0.0.1
+Build-Depends: cdbs, libqt4-dev, qt4-dev-tools
+
+Package: qrdc
+Architecture: any 
+Depends: ${shlibs:Depends}
+Description: Qt Remode Desktop Connections

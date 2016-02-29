@@ -1,0 +1,18 @@
+20100120: 0.0.1
+	* initial release
+20100124: 0.0.2
+	* Changed: About
+	* Changed: sort models
+	* Changed: hide columns
+	* Fixed: delete entry
+	* Added: settings: terminal call commandline
+	* Added: backup to text file (tab-separated)
+	* Added: restore
+	* Fixed: i18n path (_qt4_translations or <workdir>/i18n)
+	* some fixes
+	* issue: freedesktop.org compatibility (qrdc.desktop, qrdc.png)
+20100126:
+	* Changed: removed connection.id from import/export
+20100131:
+	* Added: tray
+	* refresh DialogConnection submodel after editing host/var/proto
