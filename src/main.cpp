@@ -8,6 +8,7 @@
 bool	createConnection(QSqlDatabase &db)
 {
 	QString s = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
+    // ~/.local/share/data/TI_Eugene/qrdc
 	QDir d(s);
 	d.mkpath(s);
 	db.setDatabaseName(s + QDir::separator() + "qrdc.db");
@@ -63,7 +64,7 @@ int main(int argc, char ** argv)
 {
 	QApplication app( argc, argv );
 	QCoreApplication::setApplicationName("qrdc");
-	QCoreApplication::setApplicationVersion("0.0.1");
+    QCoreApplication::setApplicationVersion("0.0.2");
 	QCoreApplication::setOrganizationName("TI_Eugene");
 	QCoreApplication::setOrganizationDomain("eap.su");
 	// <tr>

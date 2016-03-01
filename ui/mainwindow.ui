@@ -20,15 +20,21 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QTableView" name="tableView">
+     <widget class="QListView" name="listView">
       <property name="editTriggers">
        <set>QAbstractItemView::NoEditTriggers</set>
       </property>
-      <property name="selectionMode">
-       <enum>QAbstractItemView::SingleSelection</enum>
+      <property name="showDropIndicator" stdset="0">
+       <bool>false</bool>
       </property>
-      <property name="selectionBehavior">
-       <enum>QAbstractItemView::SelectRows</enum>
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <property name="isWrapping" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="resizeMode">
+       <enum>QListView::Adjust</enum>
       </property>
      </widget>
     </item>
@@ -40,7 +46,7 @@
      <x>0</x>
      <y>0</y>
      <width>346</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -276,14 +282,14 @@
  </resources>
  <connections>
   <connection>
-   <sender>tableView</sender>
-   <signal>doubleClicked(QModelIndex)</signal>
+   <sender>listView</sender>
+   <signal>activated(QModelIndex)</signal>
    <receiver>actionOpen</receiver>
    <slot>trigger()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>172</x>
-     <y>202</y>
+     <y>203</y>
     </hint>
     <hint type="destinationlabel">
      <x>-1</x>

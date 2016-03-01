@@ -1,3 +1,10 @@
+/*
+ * TODO:
+ * - listview: icons (by proto; now - null)
+ * - listView: tooltip/statusbar
+ * - filter connections by proto and/or host
+ */
+
 #include "mainwindowimpl.h"
 #include <QtGui>
 //
@@ -42,16 +49,16 @@ void	MainWindowImpl::setSlots(void) {
 	connect( actionHosts,		SIGNAL( triggered() ),	this, SLOT( onActionHosts() ) );
 	connect( actionVariables,	SIGNAL( triggered() ),	this, SLOT( onActionVariables() ) );
 	connect( actionProtocols,	SIGNAL( triggered() ),	this, SLOT( onActionProtocols() ) );
-	connect( actionAdd,		SIGNAL( triggered() ),	this, SLOT( onActionAdd() ) );
+    connect( actionAdd,         SIGNAL( triggered() ),	this, SLOT( onActionAdd() ) );
 	connect( actionEdit,		SIGNAL( triggered() ),	this, SLOT( onActionEdit() ) );
-	connect( actionDel,		SIGNAL( triggered() ),	this, SLOT( onActionDel() ) );
+    connect( actionDel,         SIGNAL( triggered() ),	this, SLOT( onActionDel() ) );
 	connect( actionOpen,		SIGNAL( triggered() ),	this, SLOT( onActionOpen() ) );
 	connect( actionSettings,	SIGNAL( triggered() ),	this, SLOT( onActionSettings() ) );
 	connect( actionBackupDB,	SIGNAL( triggered() ),	this, SLOT( onActionBackup() ) );
 	connect( actionRestoreDB,	SIGNAL( triggered() ),	this, SLOT( onActionRestore() ) );
 	connect( actionAbout,		SIGNAL( triggered() ),	this, SLOT( onActionAbout() ) );
 	connect( actionAboutQt,		SIGNAL( triggered() ),	this, SLOT( onActionAboutQt() ) );
-	connect( tray,			SIGNAL( activated ( QSystemTrayIcon::ActivationReason)), this, SLOT(onTray(QSystemTrayIcon::ActivationReason)));
+    connect( tray,              SIGNAL( activated ( QSystemTrayIcon::ActivationReason)), this, SLOT(onTray(QSystemTrayIcon::ActivationReason)));
 	connect( actionHideRestore,	SIGNAL( triggered() ),	this, SLOT(onHideRestore()));
 }
 
@@ -150,13 +157,11 @@ void	MainWindowImpl::onActionConnections(void)
 {
 	if (currentList != CONNECTION) {
 		currentList = CONNECTION;
-		tableView->setModel(modelC);
-		tableView->resizeColumnsToContents();
-		tableView->resizeRowsToContents();
-		tableView->hideColumn(0);
-		tableView->hideColumn(5);
-		tableView->hideColumn(6);
-		tableView->setCurrentIndex(tableView->model()->index(0, 1));
+        listView->setModel(modelC);
+        //listView->setResizeMode( QListView::Adjust );
+        //listView->setWrapping( true );
+        listView->setModelColumn(1);
+        listView->setCurrentIndex(listView->model()->index(0, 1));  // row 0, column 1
 	}
 }
 
@@ -164,11 +169,8 @@ void	MainWindowImpl::onActionHosts(void)
 {
 	if (currentList != HOST) {
 		currentList = HOST;
-		tableView->setModel(modelH);
-		tableView->resizeColumnsToContents();
-		tableView->resizeRowsToContents();
-		tableView->hideColumn(0);
-		tableView->setCurrentIndex(tableView->model()->index(0, 1));
+        listView->setModel(modelH);
+        listView->setCurrentIndex(listView->model()->index(0, 1));
 	}
 }
 
@@ -176,11 +178,8 @@ void	MainWindowImpl::onActionVariables(void)
 {
 	if (currentList != VAR) {
 		currentList = VAR;
-		tableView->setModel(modelV);
-		tableView->resizeColumnsToContents();
-		tableView->resizeRowsToContents();
-		tableView->hideColumn(0);
-		tableView->setCurrentIndex(tableView->model()->index(0, 1));
+        listView->setModel(modelV);
+        listView->setCurrentIndex(listView->model()->index(0, 1));
 	}
 }
 
@@ -188,15 +187,8 @@ void	MainWindowImpl::onActionProtocols(void)
 {
 	if (currentList != PROTO) {
 		currentList = PROTO;
-		tableView->setModel(modelP);
-		tableView->resizeColumnsToContents();
-		tableView->resizeRowsToContents();
-		tableView->hideColumn(0);
-		tableView->hideColumn(2);
-		tableView->hideColumn(4);
-		tableView->hideColumn(5);
-		tableView->hideColumn(6);
-		tableView->setCurrentIndex(tableView->model()->index(0, 1));
+        listView->setModel(modelP);
+        listView->setCurrentIndex(listView->model()->index(0, 1));
 	}
 }
 
@@ -226,7 +218,7 @@ void	MainWindowImpl::onActionAdd(void)
 
 void	MainWindowImpl::onActionEdit(void)
 {
-	QModelIndex idx = tableView->currentIndex();
+    QModelIndex idx = listView->currentIndex();
 	if (idx.isValid()) {
 		switch (currentList) {
 			case CONNECTION:
@@ -248,7 +240,7 @@ void	MainWindowImpl::onActionEdit(void)
 }
 
 void	MainWindowImpl::onActionDel(void) {
-	QModelIndex idx = tableView->currentIndex();
+    QModelIndex idx = listView->currentIndex();
 	if (idx.isValid()) {
 		if (QMessageBox::question(this, tr("Deleting record"), tr("Are you sure?"), QMessageBox::Yes|QMessageBox::No, QMessageBox::No) == QMessageBox::Yes) {
 			int row = idx.row();
@@ -296,9 +288,10 @@ void	MainWindowImpl::onActionHelp(void)
 
 void	MainWindowImpl::onActionOpen(void)
 {
+    // start connection
 	if (currentList == CONNECTION) {
 		// 1. get data
-		QModelIndex idx = tableView->currentIndex();
+        QModelIndex idx = listView->currentIndex();
 		int id = modelC->data(idx.sibling(idx.row(), 0)).toInt();
 		QSqlQuery q(QString("SELECT * FROM view_c WHERE id = %1").arg(id));
 		if (q.next()) {
@@ -353,5 +346,3 @@ void	MainWindowImpl::hideEvent ( QHideEvent *event ) {
 	if (settings->useTray and settings->minToTray)
 		setVisible(false);
 }
-
-//
