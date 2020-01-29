@@ -1,8 +1,5 @@
 /*
- * TODO:
- * - listview: icons (by proto; now - null)
- * - listView: tooltip/statusbar
- * - filter connections by proto and/or host
+ * 
  */
 
 #include "mainwindowimpl.h"

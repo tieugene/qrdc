@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>346</width>
+    <width>344</width>
     <height>371</height>
    </rect>
   </property>
@@ -45,7 +45,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>346</width>
+     <width>344</width>
      <height>19</height>
     </rect>
    </property>
@@ -117,8 +117,10 @@
    <addaction name="separator"/>
    <addaction name="actionSettings"/>
    <addaction name="separator"/>
-   <addaction name="actionBackupDB"/>
-   <addaction name="actionRestoreDB"/>
+   <addaction name="actionConnections"/>
+   <addaction name="actionHosts"/>
+   <addaction name="actionVariables"/>
+   <addaction name="actionProtocols"/>
   </widget>
   <action name="actionExit">
    <property name="text">
@@ -204,10 +206,10 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;Variables</string>
+    <string>&amp;V</string>
    </property>
    <property name="shortcut">
-    <string notr="true">Ctrl+V</string>
+    <string>Ctrl+V</string>
    </property>
   </action>
   <action name="actionProtocols">
@@ -215,10 +217,10 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;Protocols</string>
+    <string>&amp;P</string>
    </property>
    <property name="shortcut">
-    <string notr="true">Ctrl+P</string>
+    <string>Ctrl+P</string>
    </property>
   </action>
   <action name="actionHosts">

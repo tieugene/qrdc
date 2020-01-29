@@ -3,6 +3,16 @@
 * l10n=>_datadir
 * l10n depends on of debug/release path
 
+* listview: icons (by proto; now - null)
+* listView: tooltip/statusbar
+* filter connections by proto and/or host
+* Variables, Protocols - set icons
+* Proto: as separate left listview of icons (or addWidget() to toolbar
+* Documenting
+* Connection list: copy
+* SQL uniqs
+* SVG icons
+
 qrdc.png
 connect.gif
 backup.png	actions/document-save
